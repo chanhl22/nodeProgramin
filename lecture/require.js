@@ -1,1 +1,2 @@
-test
+require('./var');
+console.log(require);
