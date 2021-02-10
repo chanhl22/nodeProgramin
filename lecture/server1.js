@@ -16,11 +16,11 @@ http.createServer((req,res) => {
 const http = require('http');
 
 const server = http.createServer((req,res) => {
+    res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
     res.write('<h1>Hello Node!</h1>');
     res.write('<P>Hello server</p>');
     res.end('<p>Hello chan</p>');
 })
-
     .listen(8080);
     
 server.on('listening',error => {
@@ -30,3 +30,11 @@ server.on('listening',error => {
 server.on('error',error => {
     console.error(error);
 })
+
+const server2 = http.createServer((req,res) => {
+    res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+    res.write('<h1>Hello Node!</h1>');
+    res.write('<P>Hello server</p>');
+    res.end('<p>Hello chan</p>');
+})
+    .listen(8081);
