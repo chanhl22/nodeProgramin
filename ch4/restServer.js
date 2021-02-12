@@ -8,7 +8,7 @@ http.createServer(async (req, res) => {
     if (req.method === 'GET') {
       if (req.url === '/') {
         const data = await fs.readFile('./restFront.html');
-        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+        res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' }); //데이터들에 대한 데이터
         return res.end(data);
       } else if (req.url === '/about') {
         const data = await fs.readFile('./about.html');
