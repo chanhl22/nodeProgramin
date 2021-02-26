@@ -13,11 +13,22 @@ app.use(morgan('dev'));
 app.use('요청경로', express.static(path.join(__dirname, '실제경로')));
 app.use('/',express.static(path.join(__dirname, 'public')));
 //app.use(cookieParser());
-app.use(cookieParser('chanhleepw'));
+//app.use(cookieParser('chanhleepw'));
+app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session());
 app.use(multer().array());
+app.use(sessoin({
+    resave: true,
+    saveUinitialize: true,
+    //secret: 'chanhleepw',
+    secret: process.env.COOKIE_SECRET,
+    cookie: {
+        httpOnly: true,
+    },
+    //name: connect.sid,
+}));
 
 
 app.use((req,res,next) => {
