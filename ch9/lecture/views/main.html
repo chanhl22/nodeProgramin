@@ -45,7 +45,7 @@
 
 {% block script %}
   <script>
-    if (document.getElementById('img')) {
+    if (document.getElementById('img')) { //제일 처음에 실행
       document.getElementById('img').addEventListener('change', function(e) {
         const formData = new FormData();
         console.log(this, this.files);
