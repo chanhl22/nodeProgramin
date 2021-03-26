@@ -24,7 +24,7 @@ http.createServer(async (req, res) => {
     const uniqueInt = Date.now();
     session[uniqueInt] = {
       name,
-        expires,
+      expires,
     };
     res.writeHead(302, {
       Location: '/',
